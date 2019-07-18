@@ -33,7 +33,7 @@ class User(db.Model):
 
 @app.before_request
 def require_login():
-    allowed_routes = ['logon', 'register', 'index', 'blog_listing']
+    allowed_routes = ['logon', 'register', 'index', 'blog_listing',"static/style.css"]
     if request.endpoint not in allowed_routes and 'username' not in session:
         return redirect('/register')
 
@@ -165,7 +165,7 @@ def create_new_post():
 
     return render_template('newpost.html', title = "Add a new post", blog_title = blog_title, blog_content = blog_content, title_error = title_error, content_error = content_error)
 
-@app.route('/logout')
+@app.route('/logout', methods=['POST', 'GET'])
 def logout():
     del session['username']
     return redirect('/blog')

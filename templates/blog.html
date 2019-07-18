@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1> Build a Blog</h1>
+<h1> Blogz</h1>
 <div class="blogs">
     {% if blog|length == 0 %}
-        <p>No posts yet! <a href="/newpost">You should write one! :) </a></p>
+        <p>Nothing is posted here. <a href="/newpost">You should write one! :) </a></p>
 
     {% else %}
         {% for post in blog %}
